@@ -12,7 +12,7 @@ const Modal = (props) => {
           className="close-modal"
           onClick={() => setOpen(false)}
         />
-        <Form user={user} setUser={setUser} users={users} className="form" />
+        <Form user={user} setUser={setUser} users={users} className="form" setOpen={setOpen} />
       </div>
     </div>
   );

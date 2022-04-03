@@ -9,7 +9,7 @@ const Form = (props) => {
     job: "",
   });
   const { id } = props.user;
-  const { setUser } = props;
+  const { setUser, setOpen } = props;
 
   const inputEvent = (e) => {
     const { value, name } = e.target;
@@ -29,6 +29,7 @@ const Form = (props) => {
         return user;
       });
       setUser(userUpdate);
+      setOpen(false);
     } else {
       setUser((prev) => ({ ...prev, first_name: res.name, job: res.job }));
     }
