@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { register, login } from "../utils/api";
 import Error from "./Error";
+import Loading from "./Loading";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -93,6 +94,9 @@ const Login = () => {
         let data = JSON.stringify(obj);
         localStorage.setItem("user", data);
         localStorage.setItem("isAuthenticated", "true");
+      }
+      if (!localStorage.getItem("isAuthenticated")) {
+        return <Loading />
       }
       navigate("/user");
     }
