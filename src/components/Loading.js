@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactLoading from "react-loading";
 
 const Loading = () => {
   let navigate = useNavigate();
-  let auth = JSON.parse(localStorage.getItem("isAuthenticated"));
-  if (auth) {
+  let [authUser, setAuthUser] = useState(null);
+  if (authUser) {
     navigate("/user");
   }
+  useEffect(() => {
+    let auth = JSON.parse(localStorage.getItem("isAuthenticated"));
+    if (auth) {
+      setAuthUser();
+    }
+  }, [authUser]);
+  console.log("Got here");
   return (
     <ReactLoading
       type="spinningBubbles"

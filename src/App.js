@@ -3,16 +3,11 @@ import Login from "./components/Login";
 import UserPage from "./components/UserPage";
 
 function App() {
-  const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
-
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route
-          path="user"
-          element={isAuthenticated ? <UserPage /> : <Navigate to="/" />}
-        />
+        <Route path="user" element={<UserPage />} />
       </Routes>
     </div>
   );

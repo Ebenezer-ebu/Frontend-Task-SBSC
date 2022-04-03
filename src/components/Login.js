@@ -95,9 +95,6 @@ const Login = () => {
         localStorage.setItem("user", data);
         localStorage.setItem("isAuthenticated", "true");
       }
-      if (!localStorage.getItem("isAuthenticated")) {
-        return <Loading />
-      }
       navigate("/user");
     }
   };

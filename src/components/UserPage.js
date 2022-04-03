@@ -4,6 +4,7 @@ import { getUser } from "../utils/api";
 import Form from "./Form";
 import Profile from "./Profile";
 import Users from "./Users";
+import Loading from "./Loading";
 
 const UserPage = () => {
   const navigate = useNavigate();
@@ -68,6 +69,9 @@ const UserPage = () => {
     };
     getLocation();
   }, []);
+  if (!JSON.parse(localStorage.getItem("isAuthenticated"))) {
+    return <Loading />
+  }
   return (
     <div className="user-container">
       <div className="menu">
